@@ -1,4 +1,6 @@
 name: WIF
+env:
+  project_id: db-cicdpipeline-wave-2
 on:
   push:
     branches: [ "main" ]
@@ -18,5 +20,6 @@ jobs:
           service_account: ${{ secrets.SA }}
       - name: List bucket
         run: |
+          gcloud config set project ${{ env.project_id }}
           gsutil ls
           echo "auth successful"
