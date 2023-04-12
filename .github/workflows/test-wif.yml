@@ -22,6 +22,4 @@ jobs:
           service_account: ${{ secrets.SA }}
       - name: List bucket
         run: |
-          gcloud auth login
-          gsutil ls
-          echo "auth successful"
+          gcloud compute instances list --project ${{ env.project_id }}
