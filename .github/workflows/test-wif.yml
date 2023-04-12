@@ -1,0 +1,19 @@
+name: WIF
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  wif:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auth Google cloud
+        uses: google-github-actions/auth@v0.4.0
+        with:
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.SA }}
+      - name: List bucket
+        run: |
+          gsutil ls
+          echo "auth successful"
