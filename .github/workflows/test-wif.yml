@@ -23,5 +23,7 @@ jobs:
       - name: List bucket
         run: |
           gcloud config set project ${{ env.project_id }}
+          gcloud auth list
+          gcloud auth application-default login
           gsutil ls
           echo "auth successful"
