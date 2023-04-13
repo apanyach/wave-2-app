@@ -18,7 +18,6 @@ jobs:
       - name: Auth Google cloud
         uses: google-github-actions/auth@v0.4.0
         with:
-          token_format: 'access_token'
           workload_identity_provider: "projects/817731629023/locations/global/workloadIdentityPools/my-pool/providers/my-provider"
           service_account: "my-service-account@db-cicdpipeline-wave-2.iam.gserviceaccount.com"
       - name: List bucket
