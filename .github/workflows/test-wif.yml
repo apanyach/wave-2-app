@@ -24,3 +24,4 @@ jobs:
       - name: List Compute instances
         run: |
           gcloud compute instances list --project ${{ env.project_id }}
+          gsutil ls
