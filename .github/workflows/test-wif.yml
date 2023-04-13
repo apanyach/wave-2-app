@@ -19,8 +19,8 @@ jobs:
         uses: google-github-actions/auth@v1
         with:
           token_format: 'access_token'
-          workload_identity_provider: "projects/817731629023/locations/global/workloadIdentityPools/my-pool/providers/my-provider"
-          service_account: "my-service-account@db-cicdpipeline-wave-2.iam.gserviceaccount.com"
-      - name: List bucket
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.SA }}
+      - name: List Compute instances
         run: |
           gcloud compute instances list --project ${{ env.project_id }}
