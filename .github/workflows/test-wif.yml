@@ -25,7 +25,6 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
         with:
           version: '>= 390.0.0'
-      - name: List Compute instances
+      - name: List Buckets
         run: |
-          gcloud compute instances list --project ${{ env.project_id }}
           gsutil ls
